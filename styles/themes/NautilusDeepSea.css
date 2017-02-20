@@ -1,0 +1,78 @@
+/*
+
+    Name:       Nautilus Deep Sea
+    Author:     Gabriel Tortomano (http://github.com/mkaminsky11)
+
+*/
+
+.chrome-tab-nautilusDeepSea{ background-color: rgb(54,55,62) !important;border-color: #161719 !important }
+.chrome-tab-current-nautilusDeepSea{ background-color:#1A1B1F !important;border-color:#161719 !important}
+.chrome-tabs-shell-nautilusDeepSea{ background-color: rgb(30,31,35) !important }
+.chrome-shell-bottom-bar-nautilusDeepSea{ background-color: #1A1B1F !important}
+.addTabButton-nautilusDeepSea{
+  background-color: #1A1B1F !important;
+  border-color: #161719 !important;
+}
+.OpenProyectDialog-nautilusDeepSea{
+  background-color: rgb(57,70,102) !important;
+}
+
+.fa-times-nautilusDeepSea{ color: #2E353B !important }
+.fa-times-current-nautilusDeepSea{ color: #262C30 !important }
+.footer-nautilusDeepSea{background-color: rgb(30,31,35) !important;border-color:#161719 !important}
+.tab-content-nautilusDeepSea{ background-color: #1A1B1F !important;}
+.gutter-nautilusDeepSea{ background-color: #27282E !important; }
+.fileSystem-nautilusDeepSea{ background-color: rgb(30,31,35) !important; }
+.jstree-container-ul-nautilusDeepSea{ background-color: transparent !important; }
+
+
+.cm-s-nautilusDeepSea {
+  background-color: #1A1B1F;
+  color: #abb2bf;
+}
+.cm-s-nautilusDeepSea .CodeMirror-gutters {
+  background: #1A1B1F;
+  color: rgb(83,127,126);
+  border: none;
+}
+.cm-s-nautilusDeepSea .CodeMirror-guttermarker, .cm-s-nautilusDeepSea .CodeMirror-guttermarker-subtle, .cm-s-nautilusDeepSea .CodeMirror-linenumber { color: #545096; }
+.cm-s-nautilusDeepSea .CodeMirror-cursor { border-left: 1px solid rgb(6,105,247); }
+.cm-s-nautilusDeepSea div.CodeMirror-selected { background: rgba(255, 255, 255, 0.15); }
+.cm-s-nautilusDeepSea.CodeMirror-focused div.CodeMirror-selected { background: rgba(255, 255, 255, 0.10); }
+.cm-s-nautilusDeepSea .CodeMirror-line::selection, .cm-s-nautilusDeepSea .CodeMirror-line > span::selection, .cm-s-nautilusDeepSea .CodeMirror-line > span > span::selection { background: rgba(255, 255, 255, 0.10); }
+.cm-s-nautilusDeepSea .CodeMirror-line::-moz-selection, .cm-s-nautilusDeepSea .CodeMirror-line > span::-moz-selection, .cm-s-nautilusDeepSea .CodeMirror-line > span > span::-moz-selection { background: rgba(255, 255, 255, 0.10); }
+
+.cm-s-nautilusDeepSea .CodeMirror-activeline-background { background: rgba(255,255, 255, 0.05); }
+.cm-s-nautilusDeepSea .cm-keyword { color: #c678dd; }
+.cm-s-nautilusDeepSea .cm-operator { color: #56b6c2 }
+.cm-s-nautilusDeepSea .cm-variable-2 { color: rgba(255, 83, 112, 1); }
+.cm-s-nautilusDeepSea .cm-variable-3 { color: #82B1FF; }
+.cm-s-nautilusDeepSea .cm-builtin { color: #DECB6B; }
+.cm-s-nautilusDeepSea .cm-atom { color: #56b6c2; }
+.cm-s-nautilusDeepSea .cm-number { color: #F77669; }
+.cm-s-nautilusDeepSea .cm-def { color: #56b6c2 }
+.cm-s-nautilusDeepSea .cm-string { color: #98c379; }
+.cm-s-nautilusDeepSea .cm-string-2 { color: #80CBC4; }
+.cm-s-nautilusDeepSea .cm-comment { color: #546E7A; }
+.cm-s-nautilusDeepSea .cm-variable { color: rgba(255, 83, 112, 1); }
+.cm-s-nautilusDeepSea .cm-tag { color: #e06c75; }
+.cm-s-nautilusDeepSea .cm-meta { color: #80CBC4; }
+.cm-s-nautilusDeepSea .cm-attribute { color: #d19a66; }
+.cm-s-nautilusDeepSea .cm-property { color: #82B1FF; }
+.cm-s-nautilusDeepSea .cm-qualifier { color: #d19a66; }
+.cm-s-nautilusDeepSea .cm-variable-3 { color: #DECB6B; }
+.cm-s-nautilusDeepSea .cm-tag { color: rgba(255, 83, 112, 1); }
+.cm-s-nautilusDeepSea .cm-error {
+  color: rgba(255, 255, 255, 1);
+  background-color: #EC5F67;
+}
+.cm-s-nautilusDeepSea .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: rgb(6,105,247) !important;
+}
+
+.cm-s-nautilusDeepSea .CodeMirror-matchingtag {
+ 
+  background-color: rgba(84, 80, 150, .5) !important;
+}
+

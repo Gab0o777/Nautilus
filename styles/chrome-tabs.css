@@ -1,0 +1,213 @@
+.chrome-tabs-shell {
+  box-sizing: border-box;
+  position: relative;
+  font-size: 10px;
+  height: 4.2em;
+  background: #20272B;
+  padding: 1em 1.2em 0.6em 1.2em;
+
+  font-family: 'Ubuntu', sans-serif;
+}
+.chrome-tabs-shell * {
+  box-sizing: inherit;
+  font-family: inherit;
+}
+.chrome-tab{
+  -moz-border-radius-topleft: 80px 145px;
+  -webkit-border-top-left-radius: 80px 145px;
+  border-top-left-radius: 80px 145px;
+  -moz-border-radius-topright: 80px 145px;
+  -webkit-border-top-right-radius: 80px 145px;
+  border-top-right-radius: 80px 145px;
+  height: 3em;
+  width: 20%;
+  background-color: #384047;
+  border-right:1px solid #161E21;
+  border-top:1px solid #161E21;
+  border-left:1px solid #161E21;
+}
+
+.chrome-tab .fa-times,.chrome-tab .fa-circle {
+
+  display: inline-block;
+  padding: 3px;
+
+  position: absolute;
+  z-index: 10;
+  top: 7px;
+  right: 7px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.chrome-tab .fa-times{
+    color: #2E353B;
+    font-size: 11px;
+}
+
+.chrome-tab .fa-circle{
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+    top: 9px;
+    color: #528bff !important;
+    font-size: 7px;
+    text-shadow: 0px 0px 8px #528bff
+}
+
+.chrome-tab .fa-times:hover , .chrome-tab.chrome-tab-current .fa-times:hover{
+  color: #993011 !important;
+  text-shadow: 0px 0px 8px #993011;
+}
+
+.chrome-tab .fa-circle:hover , .chrome-tab.chrome-tab-current .fa-circle:hover{
+  color: #993011 !important;
+  text-shadow: 0px 0px 8px #993011;
+}
+
+#addTabButton {
+  float: left;
+  height: 20px;
+  width: 35px;
+  min-width: 35px;
+  max-width: 35px;
+  margin: 3px 0 0 17px;
+  border-color: #161E21;
+  outline: none;
+  -moz-transform: skew(20deg);
+  -ms-transform: skew(20deg);
+  -webkit-transform: skew(20deg);
+  transform: skew(20deg);
+}
+#addTabButton {
+  background: #263238;
+}
+#addTabButton:hover {
+  background: #2F3D45;
+}
+#addTabButton:active {
+  background: #232E33;
+}
+
+.chrome-tab.chrome-tab-current .fa-times {
+  color: #1E262E;
+}
+
+.chrome-tabs-shell .chrome-shell-bottom-bar {
+  position: absolute;
+  bottom: 0;
+  height: 0.45em;
+  left: 0;
+  width: 100%;
+  background: #263238;
+  box-shadow: 0 -0.08em rgba(0,0,0,0.4);
+  z-index: 20;
+}
+
+.chrome-tabs-shell.chrome-tabs-sorting .chrome-tabs:not(.chrome-tabs-clone) .chrome-tab:not(.ui-sortable-draggable-item) {
+  opacity: 0;
+}
+
+.chrome-tabs:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.chrome-tabs .chrome-tab {
+  float: left;
+  position: relative;
+  margin-top:-2px;
+
+  z-index: 1;
+}
+.chrome-tabs .chrome-tab,
+.chrome-tabs .chrome-tab * {
+  user-select: none;
+  cursor: pointer;
+}
+.chrome-tabs .chrome-tab:not(:last-child) {
+  margin-right: -1.4em;
+}
+.chrome-tabs .chrome-tab .chrome-tab-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.chrome-tabs .chrome-tab.chrome-tab-current {
+  z-index: 999;
+  background-color:#263238;
+
+}
+
+.chrome-tabs .chrome-tab .chrome-tab-favicon {
+  color:#fff;
+  height: 16px;
+  width: 16px;
+  background-size: 16px;
+  position: absolute;
+  left: 10px;
+  top: 7px;
+  z-index: 3;
+}
+
+.chrome-tabs .chrome-tab .chrome-tab-favicon:hover,
+.chrome-tabs .chrome-tab .chrome-tab-favicon:active,
+.chrome-tabs .chrome-tab .chrome-tab-favicon:focus{
+  -webkit-font-smoothing: antialiased;
+  color:#528bff;
+/*  -moz-box-shadow:0 0 8px 0 black;
+-webkit-box-shadow:0 0 8px 0 black;
+box-shadow:0 0 8px 0 black;*/
+}
+.chrome-tabs .chrome-tab .chrome-tab-title {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  color: #fff;
+  padding: 0 0.25em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.2em;
+  margin-top: 0.5em;
+  max-width: calc(100% - 5em);
+}
+.chrome-tabs .chrome-tab .chrome-tab-close {
+  position: absolute;
+  width: 1.4em;
+  height: 1.4em;
+  border-radius: 50%;
+  z-index: 2;
+  right: 1.4em;
+  top: 0.7em;
+  color: #505050;
+}
+.chrome-tabs .chrome-tab .chrome-tab-close:before {
+  font-family: 'Ubuntu', sans-serif;
+  content: "\00D7";
+  color:#fff;
+  position: absolute;
+  display: block;
+  top: 0.05em;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.15em;
+  line-height: 1;
+}
+.chrome-tabs .chrome-tab .chrome-tab-close:hover,
+.chrome-tabs .chrome-tab .chrome-tab-close:hover:active {
+  color: #fff;
+}
+.chrome-tabs .chrome-tab .chrome-tab-close:hover {
+  background: #e25c4b;
+}
+.chrome-tabs .chrome-tab .chrome-tab-close:hover:active {
+  background: #b74a3b;
+}

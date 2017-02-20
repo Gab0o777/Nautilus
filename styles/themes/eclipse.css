@@ -1,0 +1,46 @@
+/* First changing Neutron magics */
+
+.chrome-tab-eclipse{ background-color: #999 !important;border-color: #777 !important }
+.chrome-tab-current-eclipse{ background-color: #fff !important;color:#000;border-color:#999 !important}
+.chrome-tabs-shell-eclipse{ background-color: #f7f7f7 !important }
+.chrome-shell-bottom-bar-eclipse{ background-color: #fff !important}
+.addTabButton-eclipse{
+  background-color: #fff !important;
+  border-color: #777 !important;
+}
+.fa-times-current-eclipse{ color: #777 !important }
+.fa-times-eclipse{ color: #333 !important }
+.footer-eclipse{background-color: #f7f7f7 !important;border-color:#888 !important}
+.tab-content-eclipse{ background-color: #fff !important;}
+.gutter-eclipse{ background-color: #888 !important; }
+.fileSystem-eclipse{ background-color: #fff !important; }
+.jstree-container-ul-eclipse{ background-color: #fff !important; }
+
+
+
+/* CodeMirror Instance */
+
+
+.cm-s-eclipse span.cm-meta { color: #FF1717; }
+.cm-s-eclipse span.cm-keyword { line-height: 1em; font-weight: bold; color: #7F0055; }
+.cm-s-eclipse span.cm-atom { color: #219; }
+.cm-s-eclipse span.cm-number { color: #164; }
+.cm-s-eclipse span.cm-def { color: #00f; }
+.cm-s-eclipse span.cm-variable { color: black; }
+.cm-s-eclipse span.cm-variable-2 { color: #0000C0; }
+.cm-s-eclipse span.cm-variable-3 { color: #0000C0; }
+.cm-s-eclipse span.cm-property { color: black; }
+.cm-s-eclipse span.cm-operator { color: black; }
+.cm-s-eclipse span.cm-comment { color: #3F7F5F; }
+.cm-s-eclipse span.cm-string { color: #2A00FF; }
+.cm-s-eclipse span.cm-string-2 { color: #f50; }
+.cm-s-eclipse span.cm-qualifier { color: #555; }
+.cm-s-eclipse span.cm-builtin { color: #30a; }
+.cm-s-eclipse span.cm-bracket { color: #cc7; }
+.cm-s-eclipse span.cm-tag { color: #170; }
+.cm-s-eclipse span.cm-attribute { color: #00c; }
+.cm-s-eclipse span.cm-link { color: #219; }
+.cm-s-eclipse span.cm-error { color: #f00; }
+
+.cm-s-eclipse .CodeMirror-activeline-background { background: #e8f2ff; }
+.cm-s-eclipse .CodeMirror-matchingbracket { outline:1px solid grey; color:black !important; }

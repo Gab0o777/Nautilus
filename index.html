@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="neutron" ng-cloak>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Nautilus</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="styles/loader.css">
+    <link rel="stylesheet" href="styles/tooltipster.bundle.css">
+    <link rel="stylesheet" href="styles/tooltipster-sideTip-punk.min.css">
+    <link rel="stylesheet" href="styles/tooltipster-sideTip-top-punk.min.css">
+    <link rel="stylesheet" href="styles/chrome-tabs.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/toastr.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/jstree.css">
+    <link rel="stylesheet" href="styles/wheel/wheel.css">
+    <link rel="stylesheet" href="styles/jquery-ui.min.css">
+    <link rel="stylesheet" href="styles/codemirror.css">
+    <link rel="stylesheet" href="styles/codemirror/foldgutter.css">
+    <link rel="stylesheet" href="styles/codemirror/matchesonscrollbar.css">
+    <link rel="stylesheet" href="styles/fontAwesomeAnimated.css">
+    <link rel="stylesheet" href="styles/themes/material.css">
+    <link rel="stylesheet" href="styles/themes/NautilusDeepSea.css">
+    <link rel="stylesheet" href="styles/themes/monokai.css">
+    <link rel="stylesheet" href="styles/themes/ambiance.css">
+    <link rel="stylesheet" href="styles/themes/dracula.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" onload="window.$=window.jQuery=module.exports" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="scripts/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/8c56884eb5.js"></script>
+    <script src="scripts/tooltipster.bundle.js"></script>
+    <script src="scripts/split.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/codemirror.js"></script>
+    <script src="scripts/codemirror/closetag.js"></script>
+    <script src="scripts/codemirror/foldcode.js"></script>
+    <script src="scripts/codemirror/foldgutter.js"></script>
+    <script src="scripts/codemirror/htmlmixed.js"></script>
+    <script src="scripts/codemirror/javascript.js"></script>
+    <script src="scripts/codemirror/php.js"></script>
+    <script src="scripts/codemirror/css.js"></script>
+    <script src="scripts/codemirror/xml.js"></script>
+    <script src="scripts/codemirror/xml-fold.js"></script>
+    <script src="scripts/codemirror/comment-fold.js"></script>
+    <script src="scripts/codemirror/indent-fold.js"></script>
+    <script src="scripts/codemirror/markdown-fold.js"></script>
+    <script src="scripts/codemirror/brace-fold.js"></script>
+    <script src="scripts/codemirror/clike.js"></script>
+    <script src="scripts/codemirror/sql.js"></script>
+    <script src="scripts/codemirror/active-line.js"></script>
+    <script src="scripts/autorefresh.js"></script>
+    <script src="scripts/matchtags.js"></script>
+    <script src="scripts/codemirror/search.js"></script>
+    <script src="scripts/codemirror/placeholder.js"></script>
+    <script src="scripts/codemirror/annotatescrollbar.js"></script>
+    <script src="scripts/codemirror/matchesonscrollbar.js"></script>
+    <script src="scripts/codemirror/searchcursor.js"></script>
+    <script src="scripts/codemirror/match-highlighter.js"></script>
+    <script src="scripts/codemirror/matchbrackets.js"></script>
+    <script src="scripts/codemirror/closebrackets.js"></script>
+    <script src="scripts/bower_components/d3/d3.min.js"></script>
+    <script src="scripts/bower_components/tinycolor/tinycolor.js"></script>
+    <script src="scripts/wheel/colorwheel.js"></script>
+    <script src="scripts/wheel/colorwheel.theme.js"></script>
+    <script src="scripts/toastr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+  </head>
+
+  <body class="body" style="background-color:#263238;overflow-x:hidden" ng-controller="NeutronController">
+
+    <div class="col-sm-hidden col-md-2 col-lg-2" style="height:calc(100% - 30px)" id="fileSystem"></div>
+    <div style="padding:0;height:calc(100% - 30px)" class="col-sm-12 col-md-10 col-lg-10" id="content">
+      <div style="width:100%" class="chrome-tabs-shell">
+        <div sortable="neutronTabs" class="chrome-tabs">
+          <div ng-repeat="tab in neutronTabs" id="{{tab.id}}-tab" ng-click="setCurrent(tab.id)" style="text-align:center" data-toggle="tab" href="#{{tab.id}}-tc" class="chrome-tab chrome-tab-current" on-finish-render="test">
+            <div class="chrome-tab-favicon">
+              <div class="dropdown"><i class="fa fa-lg dropdown-toggle" ng-class="{'fa-html5' : tab.mode=='text/html','fa-css3' : tab.mode=='text/css','fa-code' : tab.mode=='text/javascript','fa-coffee' : tab.mode=='text/x-java','fa-database' : tab.mode=='text/x-mysql'}"
+                                       data-toggle="dropdown"></i>
+                <ul class="dropdown-menu">
+                  <li style="display:inline" ng-repeat="lang in progLang"><a ng-click="setCurrentLang(tab.id,lang.mode)" ng-class="{'lang-selected':$index==tab.modeOp}" href="#"><i style="margin-left:-{{lang.pos}}px;margin-right:10px" class="{{lang.cod}} fa-lg"></i>{{lang.name}}</a></li>
+                </ul>
+              </div>
+            </div>
+            <div id="{{tab.id}}-tabTitle" class="chrome-tab-title tooltipstered" title="{{tab.path}}" ng-click="setCurrent(tab.id)">{{tab.title}}</div><i id="{{tab.id}}-remove" class="fa fa-times" aria-hidden="true" ng-click="removeTab($index)"></i>
+          </div>
+          <button id="addTabButton" class="btn btn-default" ng-click="nuevaTab()"></button>
+        </div>
+        <div class="chrome-shell-bottom-bar"></div>
+      </div>
+      <div style="height:calc(100% - 40px)" class="tab-content">
+        <div ng-repeat="tab in neutronTabs" id="{{tab.id}}-tc" style="height:100%" class="tab-pane active in">
+          <textarea id="{{tab.id}}-ta" rows="4" cols="50" style="width:100%;height:100%" placeholder="Write your magic..."></textarea>
+        </div>
+      </div>
+      <div style="top:39px;right:10px;position:fixed;width:320px;height:70px;background-color:#212B30;border:1px solid #1E2429;z-index:9999;box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.75);" id="findSearch">
+        <input style="background-color:#dfdae0;width:80%;margin-top:4px;margin-left:5px;outline:none;border:0;height:25px;display:inline" placeholder="Find ...">
+        <button id="prev" style="width:8%;display:inline;height:25px"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+        <button id="next" style="width:8%;display:inline;height:25px"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+        <input style="background-color:#dfdae0;width:80%;margin-top:8px;margin-left:5px;outline:none;border:0;height:25px;display:inline" placeholder="Replace with ...">
+        <button id="rep" style="width:8%;display:inline;height:25px;color:transparent">d</button>
+        <button id="repAll" style="width:8%;display:inline;color:transparent">d</button>
+      </div>
+    </div>
+    <div id="footer">
+      <label id="pageTool" class="tooltipstered" title="{{actualPage.path}}">{{actualPage.title}}</label>
+      <label id="cursorTool" class="tooltipstered" title="Line 1,  Column 1">{{cursorPos.x}} : {{cursorPos.y}}</label>
+      <label id="preview-button" ng-click="updatePreview()" class="tooltipstered" title="Look at the Preview of What You're Working On!" style="float:right;color:#fff;margin-right:5px"><i style="margin-top:4px;text-decoration:none" class="fa fa-desktop" aria-hidden="true"></i>&nbsp;Live Preview</label>
+      <div id="palette-button" style="float:right" class="dropdown dropup">
+        <label style="float:right;color:#fff;margin-right:10px" aria-haspopup="true" class="tooltipstered dropdown-toggle" title="Choose a Color From the Palette" data-toggle="dropdown"><i style="margin-top:4px;margin-right:2px" class="fa fa-paint-brush" aria-hidden="true"></i>Color Palette</label>
+        <ul style="margin-left:-105px;background-color:rgba(33,43,48,.9);border-radius:25px" class="dropdown-menu dropdown-menu-top">
+          <li>
+            <div style="width:300px" id="ColorWheel"></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="OpenProyect">
+      <div style="text-align:center;color:#fff;display:table;margin:0 auto;font-size:13px">
+        <span>The Proyect Was Sucesfully Created, Would you like me to open it for you?</span>
+        <button style="margin-top:8px;margin-left:15px;font-size:11px;height:25px" class="buttonPositive" ng-click="OpenNewProyect()">Oh Yeah!</button>
+        <button style="margin-top:8px;margin-left:5px;font-size:11px;height:25px;padding-left:5px;padding-right:5px" class="buttonNegative" onclick="$('#OpenProyect').animate({width:'toggle'},500);">Not now, but Thank you dear Nautilus</button>
+      </div>
+    </div>
+
+    <div style="overflow:hidden;margin-top:150px" class="modal fade" id="Loader" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-hidden="true">
+      <div style="width:500px;height:300px;background-color:transparent" class="modal-dialog">
+        <div id="Loader-content" style="margin-left:120px;font-family:Ubuntu,sans-serif;color:#fff;border-color:transparent;width:100%;border-radius:0;background-color:transparent;box-shadow:0 0 0 rgba(19,25,28,.075)" class="modal-content">
+          <div class="modal-body">
+            <div class='uil-ring-css' style='transform:scale(0.5);'><div></div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div style="overflow:hidden;border:0" class="modal" id="StackOForm" tabindex="-1" role="dialog" aria-hidden="true">
+
+      <div class="modal-dialog">
+        <div id="StackOForm-content" class="modal-content">
+          <div class="modal-header">
+            <input style="padding-right:27px;font-family:Ubuntu, FontAwesome" ng-model="stackQuery" placeholder="Ask Your Question to the &#xf16c; Communitty...">
+            <button ng-click="SearchStack(stackQuery)" style="background-color:transparent;border:0;color:#706f6e;margin-left:-33px;outline:none"><i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+          </div>
+          <div style="height:82px" class="modal-body">
+
+            <div class="item2">
+
+              <div style="margin-top:5px" class="left-item">
+                <i style="margin-left:5px;margin-bottom:3px" class="fa fa-stack-overflow fa-5x" aria-hidden="true"></i>
+              </div>
+              <div class="separator-item"></div>
+              <div style="font-size:12px;margin-top:-60px;padding-left:75px;text-align:center" class="right-item">
+                Ask your Question and let us find some of the amazing answers the StackOverflow comunity has come up with!
+              </div>
+            </div>
+
+            <div class="item3" ng-click="ClickStack(q.link)" ng-class="{'backgroundAnswered':q.isAnswered}" ng-repeat="q in stackQuestions">
+
+              <div style="width:19%" class="left-item">
+                <img style="width:100%;height:76px" class="imgShadow" src="{{q.ownerPic}}">
+              </div>
+              <div class="separator-item"></div>
+              <div class="right-item">
+                <div style="margin-bottom:10px">{{q.title}}</div>
+                <div class="tags">
+                  <div ng-repeat="t in q.tags | limitTo:4">
+                    {{t.name}}
+                  </div>
+                </div>
+              </div>
+              <div class="Info">
+                <button><i class="fa fa-chevron-right" aria-hidden="true"></i><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div style="overflow:hidden;border:0" class="modal" id="FontAwesomeForm" tabindex="-1" role="dialog" aria-hidden="true">
+
+      <div class="modal-dialog">
+        <div id="FontAwesomeForm-content" class="modal-content">
+          <div class="modal-header">
+            <input ng-model="searchIcon" placeholder="Browse Icons  &#xf2b4; ..." style="font-family:Ubuntu, FontAwesome">
+          </div>
+          <div class="modal-body">
+
+            <div ng-click="SaveIcon(fa.code)" class="item" ng-repeat="fa in faCodes | filter:searchIcon:fontIcon">
+              <div class="left-item">
+                <i class="fa {{fa.class}} fa-lg" aria-hidden="true"></i>
+              </div>
+              <div class="separator-item"></div>
+              <div class="right-item">
+                <div style="margin: 0 auto;display:table;font-size:12px;cursor:pointer;" class="input">
+                  <span><</span>
+                    <span style="color:rgba(255, 83, 112, 1);">i&nbsp;</span>
+                    <span style="color:#80CBC4">class</span>
+                    <span>=</span>
+                    <span ng-model="fontIcon" style="color:#A4D677">"fa {{fa.class}}" </span>
+                    <span style="color:#80CBC4">aria-hidden</span>
+                    <span>=</span>
+                    <span style="color:#A4D677">"true"</span>
+                    <span>></span>
+                    <span><</span>
+                      <span>/</span>
+                      <span style="color:rgba(255, 83, 112, 1);">i</span>
+                      <span>></span>
+                      </div>
+                    </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div style="overflow:hidden;margin-top:150px" class="modal fade" id="FileChange" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-hidden="true">
+          <div style="width:500px;height:300px;background-color:transparent" class="modal-dialog">
+            <div id="FileChange-content" style="font-family:Ubuntu,sans-serif;color:#fff;border-color:transparent;width:100%;border-radius:0;background-color:transparent;box-shadow:0 0 0 rgba(19,25,28,.075)" class="modal-content">
+              <div style="border-color:transparent;text-align:center" class="modal-header"><i style="font-size:60px" class="fa fa-trash" aria-hidden="true"></i>
+                <h3 style="text-align:center" class="modal-title">Removed File</h3>
+              </div>
+              <div class="modal-body">
+                <h5>It appears that the file {{ChangedFile}} has been removed from the current folder, would you like us to remove it from your workspace or should we save it so you can keep working on it?</h5>
+              </div>
+              <div style="border-color:transparent" class="modal-footer">
+                <button type="button" data-dismiss="modal" ng-click="removeChanged()">
+                  <i style="margin-right:8px" class="fa fa-times" aria-hidden="true"></i>
+                  Remove File
+                </button>
+                <button type="button" data-dismiss="modal" ng-click="saveChanged()">
+                  <i style="margin-right:5px" class="fa fa-check" aria-hidden="true"></i>Save file
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="overflow:hidden;border-color:#13191C" class="modal fade" id="Lorem" tabindex="-1" role="dialog" aria-hidden="true">
+          <div style="width:500px;height:300px" class="modal-dialog">
+            <div id="Lorem-content" style="font-family:Ubuntu,sans-serif;color:#fff;border-color:#34444C;width:100%;border-radius:0;background-color:#263238" class="modal-content ui-widget-content">
+              <div style="border-color:#34444C;cursor:move;text-align:center" class="modal-header"><i class="close fa fa-times" data-dismiss="modal" aria-hidden="true"></i>
+                <h4 style="text-align:center" class="modal-title">Lorem Ipsum Generator</h4>
+              </div>
+              <div style="margin-top:20px;width:100%;height:95%" class="modal-body"><input type="number" value="5"><label style="margin-right:15px">Number of</label>
+                <div id="btn-lorem" class="btn-group" data-toggle="buttons"><label class="btn btn-primary active"><input type="radio" name="options" id="option1" value="words" autocomplete="off" checked=""> Words</label><label class="btn btn-primary"><input type="radio" name="options" id="option2" value="sentences" autocomplete="off"> Sentences</label>
+                  <label
+                         class="btn btn-primary"><input type="radio" name="options" id="option3" value="paragraphs" autocomplete="off"> Paragraphs</label>
+                </div>
+              </div>
+              <div style="border-color:#34444C" class="modal-footer"><button type="button" ng-click="generateLorem()"><i style="margin-right:5px" class="fa fa-check" aria-hidden="true"></i>Generate</button></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:-20px;overflow:hidden" class="modal fade" id="Designer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div style="width:100%;height:100%" class="modal-dialog">
+            <div id="Designer-content" style="cursor:move;width:100%;height:90%;border-radius:0;background-color:#263238" class="modal-content ui-widget-content"><button style="margin-right:10px;margin-top:8px" type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:#fff" aria-hidden="true">&times;</span></button>
+              <div style="margin-top:20px;width:100%;height:95%" class="modal-body"><iframe style="border:1px solid #1B2024;width:100%;height:100%;background-color:#fff" id="preview"></iframe></div>
+            </div>
+          </div>
+        </div>
+
+        <style>
+          .CodeMirror-gutter-filler,
+          .CodeMirror-scrollbar-filler {
+            background-color: transparent
+          }
+
+          div.gutter.gutter-horizontal {
+            width: 2px
+          }
+
+          .colorwheel-theme-swatch .colorwheel-theme-value input {
+            cursor: pointer;
+            opacity: .9
+          }
+
+          .colorwheel-theme-swatch .colorwheel-theme-value input:hover {
+            opacity: .9
+          }
+        </style>
+        </body>
+
+      </html>
